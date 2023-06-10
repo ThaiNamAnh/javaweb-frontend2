@@ -1,0 +1,64 @@
+<!-- <div class="formbody">
+  <form [formGroup]="OrderItemForm" (ngSubmit)="onSubmit()" class="formmain needs-validation" novalidate>
+    <!-- <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">ID</label>
+      <input type="text" formControlName="id" class="form-control" id="exampleInputEmail1" required>
+    </div> -->
+
+    <!-- <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Price</label>
+      <input type="number" formControlName="price" class="form-control" id="exampleInputEmail1" max="1000000" min="0">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Image</label>
+      <input type="text" formControlName="imageUrl" class="form-control" id="exampleInputEmail1">
+    </div> -->
+
+
+    <!-- <div class="mb-3">
+      <input type="file" formControlName="avatar" (change)="onFileSelected($event)">
+    </div> -->
+    <!-- <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div> -->
+
+
+  <div class="d-flex justify-content-center align-items-center" style="min-height:100vh">
+    <div class="card formbody" style="width: 25rem;">
+      <h1 class="text-center bg-secondary pb-1 text-white" style="border-radius:5px">Order Item Info</h1>
+  <form [formGroup]="OrderItemForm" (ngSubmit)="onSubmit()" class="needs-validation was-validated" novalidate>
+    <div class="form-group m-3">
+      <label for="name">Name:</label>
+      <input type="text" formControlName="name" id="name" class="form-control" required>
+      <div class=" invalid-feedback" *ngIf="OrderItemForm.controls.name.touched && OrderItemForm.controls.name.invalid">
+        <div *ngIf="OrderItemForm.controls.name.errors.required">Name is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group m-3">
+      <label for="price">Price:</label>
+      <input type="number" formControlName="price" id="price" class="form-control" required>
+      <div class="invalid-feedback" *ngIf="OrderItemForm.controls.price.touched && OrderItemForm.controls.price.invalid">
+        <div *ngIf="OrderItemForm.controls.price.errors.required">Price is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group m-3">
+      <label for="imageUrl">Image URL:</label>
+      <input type="text" formControlName="imageUrl" id="imageUrl" class="form-control" required>
+      <div class="invalid-feedback" *ngIf="OrderItemForm.controls.imageUrl.touched && OrderItemForm.controls.imageUrl.invalid">
+        <div *ngIf="OrderItemForm.controls.imageUrl.errors.required">Image URL is required.</div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary" [disabled]="!OrderItemForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
+</div>

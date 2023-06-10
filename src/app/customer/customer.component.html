@@ -1,0 +1,41 @@
+<div class="container d-flex justify-content-center">
+  <div class="mt-5">
+<h1>List of Customer</h1>
+<table border = "1" style="border-collapse: collapse;">
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Gender</th>
+    <th>Order</th>
+    <!-- <th>Date</th> -->
+    <th>Delete-Edit</th>
+    <th>Delete Many</th>
+  </tr>
+  <tr *ngFor="let l of listCustomer">
+    <td style="min-width: 50px;">{{l.id}}</td>
+    <td style="min-width: 100px;">{{l.firstName}}</td>
+    <td style="min-width: 100px;">{{l.lastName}}</td>
+    <td style="min-width: 100px;">{{l.email}}</td>
+    <td style="min-width: 100px;">{{l.address}}</td>
+    <td style="min-width: 100px;">{{l.gender}}</td>
+    <td><button class="btn btn-info" mat-button (click)="showOrders(l.id)">Show Orders</button></td>
+    <!-- <td><img src="{{ l.avatar }}" alt="Avatar" width="100" height="80"></td> -->
+    <!-- <td>{{l.date}}</td> -->
+    <td>
+
+      <button class = "btn btn-secondary me-1" (click)="editCustomer(l.id)">Update</button>
+      <button class = "btn btn-danger" (click)="deleteCustomer(l.id)">Delete</button>
+    </td>
+    <td><input type="checkbox" (change)="toggleCustomerSelection(l)"></td>
+  </tr>
+  <tr>
+    <td [colSpan]="8" style="border:none"></td>
+    <button class="btn btn-danger" (click)="deleteSelectedCustomer()" [disabled]="selectedCustomer.length === 0">Delete Selected</button>
+  </tr>
+</table>
+<button class="btn btn-success" (click)="addCustomer()">Add Customer</button>
+</div>
+</div>
